@@ -4,42 +4,34 @@ import java.io.IOException;
 import java.util.UUID;
 
 import com.compta.domains.api.Account;
-import com.fasterxml.jackson.annotation.JsonGetter;
 
-public class AccountVm {
+public final class AccountVm {
 	
-	private final transient Account origin;
+	public final UUID id;
+	public final String name;
+	public final String fullName;
+	public final String code;
+	public final int typeId;
+	public final String type;
+	public final boolean refuseCreditBalance;
+	public final boolean refuseDebitBalance;
 	
 	public AccountVm(){
 		throw new UnsupportedOperationException("#AccountVm()");
 	}
 		
 	public AccountVm(Account origin){
-		this.origin = origin;
+		try {
+			this.id = origin.id();
+			this.name = origin.name();
+			this.fullName = origin.fullName();
+	        this.code = origin.code();
+	        this.typeId = origin.type().id();
+	        this.type = origin.type().toString();
+	        this.refuseCreditBalance = origin.refuseCreditBalance();
+	        this.refuseDebitBalance = origin.refuseDebitBalance();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
-	
-	@JsonGetter
-	public UUID id(){
-		return this.origin.id();
-	}
-	
-	@JsonGetter
-	public String name() throws IOException {
-		return this.origin.name();
-	}
-	
-	@JsonGetter
-	public String code() throws IOException {
-		return this.origin.code();
-	}
-	
-	@JsonGetter
-	public int typeId() throws IOException {
-		return this.origin.type().id();
-	}	
-	
-	@JsonGetter
-	public String type() throws IOException {
-		return this.origin.type().toString();
-	}	
 }

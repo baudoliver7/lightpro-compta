@@ -12,5 +12,10 @@
   		<artifactId>domain-compta</artifactId>
   		<version>${project.version}</version>
   	</dependency>
+  	<dependency>
+  		<groupId>com.lightpro.app</groupId>
+  		<artifactId>compta-reporting</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
   </dependencies>
 </project>

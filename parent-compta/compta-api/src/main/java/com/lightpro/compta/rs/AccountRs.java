@@ -59,7 +59,6 @@ public class AccountRs extends ComptaBaseRs {
 						
 						List<ListValueVm> items = Arrays.asList(AccountType.values())
 								 						.stream()
-								 						.filter(m -> m.id() > 0) 
 								 						.map(m -> new ListValueVm(m.id(), m.toString()))
 								 						.collect(Collectors.toList());
 
@@ -78,8 +77,9 @@ public class AccountRs extends ComptaBaseRs {
 					@Override
 					public Response call() throws IOException {
 						
-						compta().chart().accounts().add(cmd.code(), cmd.name(), cmd.type());
+						Account account = compta().chart().accounts().add(cmd.code(), cmd.name(), cmd.type(), cmd.refuseCreditBalance(), cmd.refuseDebitBalance());
 						
+						log.info(String.format("Création du compte %s", account.fullName()));
 						return Response.status(Response.Status.OK).build();
 					}
 				});		
@@ -97,8 +97,9 @@ public class AccountRs extends ComptaBaseRs {
 					public Response call() throws IOException {
 						
 						Account item = compta().chart().accounts().get(id);
-						item.update(cmd.code(), cmd.name(), cmd.type());
+						item.update(cmd.code(), cmd.name(), cmd.type(), cmd.refuseCreditBalance(), cmd.refuseDebitBalance());
 						
+						log.info(String.format("Mise à jour des données du compte %s", item.fullName()));
 						return Response.status(Response.Status.OK).build();
 					}
 				});		
@@ -117,8 +118,10 @@ public class AccountRs extends ComptaBaseRs {
 						
 						Accounts items = compta().chart().accounts();
 						Account item = items.get(id);
+						String fullName = item.fullName();
 						items.delete(item);
 						
+						log.info(String.format("Suppression du compte %s", fullName));
 						return Response.status(Response.Status.OK).build();
 					}
 				});	

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_LdxKAAgQEeeSjv9rE-0BIw" name="NewModel">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_8PLDcAgQEeeSjv9rE-0BIw" name="PieceType">
+    <ownedOperation xmi:id="__CCMoAgQEeeSjv9rE-0BIw" name="name"/>
+    <ownedOperation xmi:id="_Bc_MIAgREeeSjv9rE-0BIw" name="journal"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_t3_tEAgREeeSjv9rE-0BIw" name="Trame"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_zk9P4AgREeeSjv9rE-0BIw" name="TrameLine">
+    <ownedOperation xmi:id="_GPOWoAgSEeeSjv9rE-0BIw" name="generalAccount"/>
+    <ownedOperation xmi:id="_Hp_EcAgSEeeSjv9rE-0BIw" name="description"/>
+    <ownedOperation xmi:id="_LzOKsAgSEeeSjv9rE-0BIw" name="sens"/>
+    <ownedOperation xmi:id="_VaxTwAgSEeeSjv9rE-0BIw" name="typeAmount"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_EBQqQAgSEeeSjv9rE-0BIw" memberEnd="_EBQqQQgSEeeSjv9rE-0BIw _EBtWMggSEeeSjv9rE-0BIw" navigableOwnedEnd="_EBtWMggSEeeSjv9rE-0BIw">
+    <ownedEnd xmi:id="_EBQqQQgSEeeSjv9rE-0BIw" name="pieceTypes" type="_8PLDcAgQEeeSjv9rE-0BIw" association="_EBQqQAgSEeeSjv9rE-0BIw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EBtWMAgSEeeSjv9rE-0BIw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EBtWMQgSEeeSjv9rE-0BIw" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_EBtWMggSEeeSjv9rE-0BIw" name="trames" type="_t3_tEAgREeeSjv9rE-0BIw" association="_EBQqQAgSEeeSjv9rE-0BIw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EBtWMwgSEeeSjv9rE-0BIw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EBtWNAgSEeeSjv9rE-0BIw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_FWibIAgSEeeSjv9rE-0BIw" memberEnd="_FWibIQgSEeeSjv9rE-0BIw _FWibJAgSEeeSjv9rE-0BIw" navigableOwnedEnd="_FWibJAgSEeeSjv9rE-0BIw">
+    <ownedEnd xmi:id="_FWibIQgSEeeSjv9rE-0BIw" name="trames" type="_t3_tEAgREeeSjv9rE-0BIw" association="_FWibIAgSEeeSjv9rE-0BIw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FWibIggSEeeSjv9rE-0BIw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FWibIwgSEeeSjv9rE-0BIw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_FWibJAgSEeeSjv9rE-0BIw" name="trameLines" type="_zk9P4AgREeeSjv9rE-0BIw" aggregation="composite" association="_FWibIAgSEeeSjv9rE-0BIw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FWibJQgSEeeSjv9rE-0BIw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FWibJggSEeeSjv9rE-0BIw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

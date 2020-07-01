@@ -42,7 +42,18 @@ public class AccountMetadata implements DomainMetadata {
 	public String typeIdKey(){
 		return "typeid";
 	}
+	
+	public String isAuxiliaryKey(){
+		return "is_auxiliary";
+	}
+	
+	public String refuseCreditBalanceKey(){
+		return "refuse_credit_balance";
+	}
 
+	public String refuseDebitBalanceKey(){
+		return "refuse_debit_balance";
+	}
 	public static AccountMetadata create(){
 		return new AccountMetadata();
 	}	

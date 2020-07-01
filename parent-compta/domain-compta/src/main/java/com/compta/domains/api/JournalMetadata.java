@@ -42,6 +42,18 @@ public class JournalMetadata implements DomainMetadata {
 	public String typeIdKey(){
 		return "typeid";
 	}
+	
+	public String accountIdKey(){
+		return "accountid";
+	}
+	
+	public String viewOnDashboardKey(){
+		return "view_on_dashboard";
+	}
+	
+	public String validateAccountKey(){
+		return "validate_account";
+	}
 
 	public static JournalMetadata create(){
 		return new JournalMetadata();

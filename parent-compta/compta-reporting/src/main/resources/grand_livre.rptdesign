@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <text-property name="title">Grand_livre</text-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">pojoDataSetClassPath</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">5</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="Start" id="175">
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="End" id="176">
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="JournalId" id="177">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.data.oda.pojo" name="LineDataSource" id="5">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>SynchronizeClassPath</name>
+                    <value>true</value>
+                </ex-property>
+                <ex-property>
+                    <name>pojoClassPath</name>
+                    <value>C:\Users\oob\.m2\repository\com\lightpro\app\infrastructure\1.0\infrastructure-1.0.jar;C:\Users\oob\.m2\repository\com\lightpro\app\securities\1.0\securities-1.0.jar;C:\Users\oob\.m2\repository\com\lightpro\app\domain-compta\1.0\domain-compta-1.0.jar;C:\Users\oob\.m2\repository\com\lightpro\app\compta-reporting\1.0\compta-reporting-1.0.jar;</value>
+                </ex-property>
+            </list-property>
+            <property name="pojoDataSetClassPath">C:\Users\oob\.m2\repository\com\lightpro\app\infrastructure\1.0\infrastructure-1.0.jar;C:\Users\oob\.m2\repository\com\lightpro\app\securities\1.0\securities-1.0.jar;C:\Users\oob\.m2\repository\com\lightpro\app\domain-compta\1.0\domain-compta-1.0.jar;C:\Users\oob\.m2\repository\com\lightpro\app\compta-reporting\1.0\compta-reporting-1.0.jar;</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.data.oda.pojo.dataSet" name="LineDataSet" id="6">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Compte</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Compte</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Date</property>
+                    <property name="alias">Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">JRNL</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">JRNL</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Tiers</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Tiers</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Réf.</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Réf.</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Libellé de la pièce comptable</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Libellé de la pièce comptable</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Débit</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Débit</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Crédit</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Crédit</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Balance</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Balance</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">Start</property>
+                    <property name="paramName">Start</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">End</property>
+                    <property name="paramName">End</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">JournalId</property>
+                    <property name="paramName">JournalId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Compte</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">JRNL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Tiers</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Réf.</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Libellé de la pièce comptable</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Débit</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Crédit</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Balance</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">LineDataSource</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Compte</property>
+                    <property name="nativeName">Compte</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Date</property>
+                    <property name="nativeName">Date</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">JRNL</property>
+                    <property name="nativeName">JRNL</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Tiers</property>
+                    <property name="nativeName">Tiers</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Réf.</property>
+                    <property name="nativeName">Réf.</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Libellé de la pièce comptable</property>
+                    <property name="nativeName">Libellé de la pièce comptable</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">Débit</property>
+                    <property name="nativeName">Débit</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">Crédit</property>
+                    <property name="nativeName">Crédit</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">Balance</property>
+                    <property name="nativeName">Balance</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PojoQuery appContextKey="APP_CONTEXT_KEY_LINEDATASET" dataSetClass="com.compta.reporting.datasets.LineDataSet" version="1.0">
+    <ClassColumnMappings>
+        <ColumnMapping index="1" name="Compte" odaDataType="String">
+            <Method name="fullName"/>
+        </ColumnMapping>
+        <Method name="generalAccount"/>
+    </ClassColumnMappings>
+    <ClassColumnMappings>
+        <ColumnMapping index="2" name="Date" odaDataType="String">
+            <Method name="date"/>
+        </ColumnMapping>
+        <ColumnMapping index="5" name="Réf." odaDataType="String">
+            <Method name="reference"/>
+        </ColumnMapping>
+        <Method name="piece"/>
+    </ClassColumnMappings>
+    <ClassColumnMappings>
+        <ClassColumnMappings>
+            <ColumnMapping index="3" name="JRNL" odaDataType="String">
+                <Method name="code"/>
+            </ColumnMapping>
+            <Method name="journal"/>
+        </ClassColumnMappings>
+        <ColumnMapping index="6" name="Libellé de la pièce comptable" odaDataType="String">
+            <Method name="object"/>
+        </ColumnMapping>
+        <Method name="flux"/>
+    </ClassColumnMappings>
+    <ClassColumnMappings>
+        <ColumnMapping index="4" name="Tiers" odaDataType="String">
+            <Method name="name"/>
+        </ColumnMapping>
+        <Method name="tiers"/>
+    </ClassColumnMappings>
+    <ColumnMapping index="7" name="Débit" odaDataType="Double">
+        <Method name="debit"/>
+    </ColumnMapping>
+    <ColumnMapping index="8" name="Crédit" odaDataType="Double">
+        <Method name="credit"/>
+    </ColumnMapping>
+    <ColumnMapping index="9" name="Balance" odaDataType="Double">
+        <Method name="balance"/>
+    </ColumnMapping>
+</PojoQuery>
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Date</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Date</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>methodNameRegx</name>
+                    <value>acc</value>
+                </ex-property>
+                <ex-property>
+                    <name>pojoClass</name>
+                    <value>com.compta.domains.api.Line</value>
+                </ex-property>
+            </list-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="LightProStyle" id="63">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <structure name="dateTimeFormat">
+                <property name="category">Custom</property>
+                <property name="pattern">d/M/yy</property>
+            </structure>
+        </style>
+        <style name="LightProHeader" id="64">
+            <property name="backgroundColor">#808080</property>
+            <property name="fontWeight">bold</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="MoneyStyle" id="77">
+            <structure name="numberFormat">
+                <property name="category">Currency</property>
+                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+            </structure>
+            <property name="textAlign">right</property>
+        </style>
+        <style name="table" id="150"/>
+        <style name="BolderStyle" id="157">
+            <property name="fontWeight">bold</property>
+        </style>
+        <style name="BoldBorderStyle" id="158">
+            <property name="fontWeight">bold</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">none</property>
+        </style>
+        <style name="ReportTitleStyle" id="163">
+            <property name="fontSize">large</property>
+            <property name="fontWeight">bold</property>
+            <property name="marginBottom">1cm</property>
+            <property name="textAlign">center</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="orientation">landscape</property>
+            <page-header>
+                <grid id="164">
+                    <property name="height">0.2708333333333333in</property>
+                    <property name="width">1.1145833333333333in</property>
+                    <column id="165">
+                        <property name="width">0.4375in</property>
+                    </column>
+                    <column id="166">
+                        <property name="width">0.4479166666666667in</property>
+                    </column>
+                    <column id="167">
+                        <property name="width">0.22916666666666666in</property>
+                    </column>
+                    <row id="168">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="169">
+                            <auto-text id="170">
+                                <property name="type">page-number</property>
+                            </auto-text>
+                        </cell>
+                        <cell id="171">
+                            <text id="172">
+                                <property name="contentType">plain</property>
+                                <text-property name="content"><![CDATA[/]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="173">
+                            <auto-text id="174">
+                                <property name="type">total-page</property>
+                            </auto-text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-header>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="162">
+            <property name="style">ReportTitleStyle</property>
+            <text-property name="text">Grand-livre</text-property>
+        </label>
+        <table id="17">
+            <property name="width">100%</property>
+            <property name="dataSet">LineDataSet</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Date</property>
+                    <text-property name="displayName">Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">JRNL</property>
+                    <text-property name="displayName">JRNL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["JRNL"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Tiers</property>
+                    <text-property name="displayName">Tiers</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Tiers"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Réf.</property>
+                    <text-property name="displayName">Réf.</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Réf."]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Libellé de la pièce comptable</property>
+                    <text-property name="displayName">Libellé de la pièce comptable</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Libellé de la pièce comptable"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Débit</property>
+                    <text-property name="displayName">Débit</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Débit"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Crédit</property>
+                    <text-property name="displayName">Crédit</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Crédit"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Balance</property>
+                    <text-property name="displayName">Balance</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Balance"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Compte</property>
+                    <text-property name="displayName">Compte</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Compte"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <text-property name="displayName">SumDebit</text-property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup1</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Débit"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">SumCredit</property>
+                    <text-property name="displayName">SumCredit</text-property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup1</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Crédit"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">SumBalance</property>
+                    <text-property name="displayName">SumBalance</text-property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup1</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Balance"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="56">
+                <property name="width">1.3958333333333333in</property>
+            </column>
+            <column id="57">
+                <property name="width">1.3958333333333333in</property>
+            </column>
+            <column id="58">
+                <property name="width">1.3958333333333333in</property>
+            </column>
+            <column id="59">
+                <property name="width">1.1354166666666667in</property>
+            </column>
+            <column id="60">
+                <property name="width">1.7708333333333333in</property>
+            </column>
+            <column id="61">
+                <property name="width">1.3854166666666667in</property>
+            </column>
+            <column id="62">
+                <property name="width">1.3854166666666667in</property>
+            </column>
+            <column id="74">
+                <property name="width">1.2604166666666667in</property>
+            </column>
+            <header>
+                <row id="18">
+                    <property name="style">LightProHeader</property>
+                    <cell id="19">
+                        <property name="style">LightProStyle</property>
+                        <label id="20">
+                            <text-property name="text">Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="21">
+                        <property name="style">LightProStyle</property>
+                        <label id="22">
+                            <text-property name="text">JRNL</text-property>
+                        </label>
+                    </cell>
+                    <cell id="23">
+                        <property name="style">LightProStyle</property>
+                        <label id="24">
+                            <text-property name="text">Tiers</text-property>
+                        </label>
+                    </cell>
+                    <cell id="25">
+                        <property name="style">LightProStyle</property>
+                        <label id="26">
+                            <text-property name="text">Réf.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="27">
+                        <property name="style">LightProStyle</property>
+                        <label id="28">
+                            <text-property name="text">Libellé de la pièce comptable</text-property>
+                        </label>
+                    </cell>
+                    <cell id="29">
+                        <property name="style">LightProStyle</property>
+                        <label id="30">
+                            <text-property name="text">Débit</text-property>
+                        </label>
+                    </cell>
+                    <cell id="31">
+                        <property name="style">LightProStyle</property>
+                        <label id="32">
+                            <text-property name="text">Crédit</text-property>
+                        </label>
+                    </cell>
+                    <cell id="71">
+                        <property name="style">LightProStyle</property>
+                        <label id="75">
+                            <text-property name="text">Balance</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="127">
+                <property name="groupName">NewTableGroup1</property>
+                <expression name="keyExpr" type="javascript">row["Compte"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["Compte"]</expression>
+                    <property name="TOCStyle">LightProStyle</property>
+                </structure>
+                <property name="hideDetail">false</property>
+                <list-property name="sort">
+                    <structure>
+                        <expression name="key" type="javascript">row["Compte"]</expression>
+                        <property name="direction">asc</property>
+                        <property name="strength">-1</property>
+                    </structure>
+                </list-property>
+                <header>
+                    <row id="128">
+                        <property name="style">BoldBorderStyle</property>
+                        <cell id="130">
+                            <property name="colSpan">5</property>
+                            <property name="rowSpan">1</property>
+                            <data id="149">
+                                <property name="resultSetColumn">Compte</property>
+                            </data>
+                        </cell>
+                        <cell id="135">
+                            <data id="154">
+                                <property name="style">MoneyStyle</property>
+                                <property name="resultSetColumn">Aggregation</property>
+                            </data>
+                        </cell>
+                        <cell id="136">
+                            <data id="155">
+                                <property name="style">MoneyStyle</property>
+                                <property name="resultSetColumn">SumCredit</property>
+                            </data>
+                        </cell>
+                        <cell id="137">
+                            <data id="156">
+                                <property name="style">MoneyStyle</property>
+                                <property name="resultSetColumn">SumBalance</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <detail>
+                <row id="33">
+                    <cell id="34">
+                        <property name="style">LightProStyle</property>
+                        <data id="35">
+                            <property name="resultSetColumn">Date</property>
+                        </data>
+                    </cell>
+                    <cell id="36">
+                        <property name="style">LightProStyle</property>
+                        <data id="37">
+                            <property name="resultSetColumn">JRNL</property>
+                        </data>
+                    </cell>
+                    <cell id="38">
+                        <property name="style">LightProStyle</property>
+                        <data id="39">
+                            <property name="resultSetColumn">Tiers</property>
+                        </data>
+                    </cell>
+                    <cell id="40">
+                        <property name="style">LightProStyle</property>
+                        <data id="41">
+                            <property name="resultSetColumn">Réf.</property>
+                        </data>
+                    </cell>
+                    <cell id="42">
+                        <property name="style">LightProStyle</property>
+                        <data id="43">
+                            <property name="resultSetColumn">Libellé de la pièce comptable</property>
+                        </data>
+                    </cell>
+                    <cell id="44">
+                        <property name="style">LightProStyle</property>
+                        <data id="45">
+                            <property name="style">MoneyStyle</property>
+                            <property name="resultSetColumn">Débit</property>
+                        </data>
+                    </cell>
+                    <cell id="46">
+                        <property name="style">LightProStyle</property>
+                        <data id="47">
+                            <property name="style">MoneyStyle</property>
+                            <property name="resultSetColumn">Crédit</property>
+                        </data>
+                    </cell>
+                    <cell id="72">
+                        <property name="style">LightProStyle</property>
+                        <data id="76">
+                            <property name="style">MoneyStyle</property>
+                            <property name="resultSetColumn">Balance</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

@@ -19,5 +19,7 @@
    <modules>
    	<module>domain-compta</module>
    	<module>compta-api</module>
+   	<module>compta-reporting</module>
+   	
    </modules>
 </project>

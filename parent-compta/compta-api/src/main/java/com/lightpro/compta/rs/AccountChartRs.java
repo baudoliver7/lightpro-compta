@@ -2,6 +2,7 @@ package com.lightpro.compta.rs;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
@@ -12,7 +13,9 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.compta.domains.api.AccountType;
 import com.compta.domains.api.Accounts;
+import com.compta.domains.api.TiersType;
 import com.infrastructure.core.PaginationSet;
 import com.lightpro.compta.vm.AccountChartVm;
 import com.lightpro.compta.vm.AccountVm;
@@ -45,21 +48,26 @@ public class AccountChartRs extends ComptaBaseRs {
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response searchAccountsOfActiveChart(@QueryParam("page") int page, 
 												@QueryParam("pageSize") int pageSize, 
-												@QueryParam("filter") String filter) throws IOException {
+												@QueryParam("filter") String filter,
+												@QueryParam("tiersTypeId") UUID tiersTypeId,
+												@QueryParam("typeId") int typeId) throws IOException {
 		
 		return createHttpResponse(
 				new Callable<Response>(){
 					@Override
 					public Response call() throws IOException {
 						
-						Accounts container = compta().chart().accounts();
+						TiersType tiersType = compta().tiersTypes().build(tiersTypeId);
+						AccountType type = AccountType.get(typeId);
 						
+						Accounts container = compta().chart().accounts().of(tiersType).of(type);
+												
 						List<AccountVm> itemsVm = container.find(page, pageSize, filter)
 														   .stream()
 														   .map(m -> new AccountVm(m))
 														   .collect(Collectors.toList());
 													
-						int count = container.totalCount(filter);
+						long count = container.count(filter);
 						PaginationSet<AccountVm> pagedSet = new PaginationSet<AccountVm>(itemsVm, page, count);
 						
 						return Response.ok(pagedSet).build();

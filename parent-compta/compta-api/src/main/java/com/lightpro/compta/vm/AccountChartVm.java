@@ -4,31 +4,24 @@ import java.io.IOException;
 import java.util.UUID;
 
 import com.compta.domains.api.AccountChart;
-import com.fasterxml.jackson.annotation.JsonGetter;
 
-public class AccountChartVm {
-	private final transient AccountChart origin;
+public final class AccountChartVm {
+	
+	public final UUID id;
+	public final String name;
+	public final int codeDigits;	
 	
 	public AccountChartVm(){
 		throw new UnsupportedOperationException("#AccountChartVm()");
 	}
 		
-	public AccountChartVm(AccountChart origin){
-		this.origin = origin;
+	public AccountChartVm(AccountChart origin){		
+		try {
+			this.id = origin.id();
+			this.name = origin.name();
+			this.codeDigits = origin.codeDigits();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
-	
-	@JsonGetter
-	public UUID id(){
-		return this.origin.id();
-	}
-	
-	@JsonGetter
-	public String name() throws IOException {
-		return this.origin.name();
-	}
-	
-	@JsonGetter
-	public int codeDigits() throws IOException {
-		return this.origin.codeDigits();
-	}	
 }

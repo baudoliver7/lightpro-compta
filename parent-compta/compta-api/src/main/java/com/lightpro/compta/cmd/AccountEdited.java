@@ -9,6 +9,8 @@ public class AccountEdited {
 	private final String name;
 	private final String code;
 	private final AccountType type;
+	private final boolean refuseCreditBalance;
+	private final boolean refuseDebitBalance;
 	
 	public AccountEdited(){
 		throw new UnsupportedOperationException("#AccountEdited()");
@@ -17,11 +19,15 @@ public class AccountEdited {
 	@JsonCreator
 	public AccountEdited( @JsonProperty("name") final String name, 
 				    	  @JsonProperty("code") final String code,
-				    	  @JsonProperty("typeId") final int typeId){
+				    	  @JsonProperty("typeId") final int typeId,
+				    	  @JsonProperty("refuseCreditBalance") final boolean refuseCreditBalance,
+				    	  @JsonProperty("refuseDebitBalance") final boolean refuseDebitBalance){
 		
 		this.name = name;
 		this.code = code;
 		this.type = AccountType.get(typeId);
+		this.refuseCreditBalance = refuseCreditBalance;
+		this.refuseDebitBalance = refuseDebitBalance;
 	}
 	
 	public String name(){
@@ -34,5 +40,13 @@ public class AccountEdited {
 	
 	public AccountType type(){
 		return type;
+	}
+	
+	public boolean refuseCreditBalance(){
+		return refuseCreditBalance;
+	}
+	
+	public boolean refuseDebitBalance(){
+		return refuseDebitBalance;
 	}
 }

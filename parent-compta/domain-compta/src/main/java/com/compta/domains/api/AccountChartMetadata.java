@@ -39,6 +39,18 @@ public class AccountChartMetadata implements DomainMetadata {
 		return "moduleid";
 	}
 	
+	public String lastDayExoKey(){
+		return "exo_last_day";
+	}
+	
+	public String lastMonthExoKey(){
+		return "exo_last_month";
+	}
+	
+	public String journalRanIdKey(){
+		return "journalran_id";
+	}
+	
 	public static AccountChartMetadata create(){
 		return new AccountChartMetadata();
 	}

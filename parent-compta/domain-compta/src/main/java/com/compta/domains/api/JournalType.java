@@ -2,12 +2,12 @@ package com.compta.domains.api;
 
 public enum JournalType {
 	
-	NONE       (0, "Non défini"),
+	NONE       (0, "Aucun type"),
 	VENTE      (1, "Vente"),
-	ACHATS     (2, "Achats"),
-	LIQUIDITES (3, "Liquidités"),
+	ACHATS     (2, "Achat"),
+	LIQUIDITES (3, "Caisse"),
 	BANQUE     (4, "Banque"),
-	DIVERS     (5, "Divers");
+	DIVERS     (5, "Operations diverses");
 	
 	private final int id;
 	private final String name;
